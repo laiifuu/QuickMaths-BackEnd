@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   get 'api/v1/tutors', to: 'tutors#index'
   post 'api/v1/tutors', to: 'tutors#create'
+  delete 'api/v1/tutors/:id', to: 'tutors#destroy'
 
 end

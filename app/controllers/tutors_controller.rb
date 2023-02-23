@@ -7,11 +7,18 @@ class TutorsController < ApplicationController
   def create
     @tutor = Tutor.new(tutor_params)
 
-    if @tutor.save
-      render json: { random: 'cool', status: :created }
-    else
-      render json: @tutor.errors, status: :unprocessable_entity
-    end
+    return unless @tutor.save
+
+    render json: { random: 'cool', status: :created }
+  end
+
+  def destroy
+    id = params[:id]
+    @tutor = Tutor.find(id)
+
+    return unless @tutor.destroy
+
+    render json: { random: 'cool', status: :Ok }
   end
 
   private
