@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_100128) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_101827) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tutors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.text "description"
+    t.string "fb_link"
+    t.string "ig_link"
+    t.string "twitter_link"
+    t.string "photo_url"
+    t.integer "hourly_fee"
+    t.integer "experience"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fb_link"], name: "index_tutors_on_fb_link", unique: true
+    t.index ["ig_link"], name: "index_tutors_on_ig_link", unique: true
+    t.index ["photo_url"], name: "index_tutors_on_photo_url", unique: true
+    t.index ["twitter_link"], name: "index_tutors_on_twitter_link", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
