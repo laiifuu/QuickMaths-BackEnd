@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   # end
 
   get 'api/v1/tutors', to: 'tutors#index'
-  
+  post 'api/v1/tutors', to: 'tutors#create'
 
 end
