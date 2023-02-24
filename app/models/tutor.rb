@@ -1,7 +1,7 @@
 class Tutor < ApplicationRecord
   has_many :reservations
   has_many :users, through: :reservations
-  
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :photo_url, presence: true
