@@ -5,6 +5,7 @@ class CreateReservations < ActiveRecord::Migration[7.0]
       t.integer :tutor_id
       t.string :city
       t.date :date
+      t.string :hour
 
       t.timestamps
     end
