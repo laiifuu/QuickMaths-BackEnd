@@ -7,4 +7,5 @@ class Reservation < ApplicationRecord
   validates :date, presence: true
   validates :city, presence: true
   validates :hour, presence: true
+  validates :tutor_id, uniqueness: { scope: %i[date hour] }
 end

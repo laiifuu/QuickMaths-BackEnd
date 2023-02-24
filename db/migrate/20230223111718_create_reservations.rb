@@ -10,6 +10,6 @@ class CreateReservations < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    add_index :reservations, [:tutor_id, :date], unique: true
+    add_index :reservations, [:tutor_id, :date, :hour], unique: true
   end
 end

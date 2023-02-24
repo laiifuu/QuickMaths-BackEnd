@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @username = user_params[:username]
     @user = User.find_by(username: @username)
     if @user
-      render json: { message: 'Welcome back, good to see you here!', logged_in: true, reservations: @user.reservations, user: @user },
+      render json: { message: 'Welcome back.', logged_in: true, reservations: @user.reservations, user: @user },
              status: :ok
     else
       render json: { message: 'User not found.', logged_in: false }, status: :not_found
