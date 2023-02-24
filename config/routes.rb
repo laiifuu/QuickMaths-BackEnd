@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   post 'api/v1/tutors', to: 'tutors#create'
   delete 'api/v1/tutors/:id', to: 'tutors#destroy'
   post 'api/v1/login', to: 'users#login'
-  
+  post 'api/v1/signup', to: 'users#signup'
+
 end
