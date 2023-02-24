@@ -6,19 +6,23 @@ class TutorsController < ApplicationController
 
   def create
     @tutor = Tutor.new(tutor_params)
-
-    return unless @tutor.save
-
-    render json: { random: 'cool', status: :created }
+    if @tutor.valid?
+      @tutor.save
+      render json: { message: 'Tutor has been created successfully!' }, status: :created
+    else 
+      render json: { message: 'Tutor couldn\'t be created.'}, status: :not_acceptable
+    end
   end
 
   def destroy
     id = params[:id]
     @tutor = Tutor.find(id)
 
-    return unless @tutor.destroy
-
-    render json: { random: 'cool', status: :Ok }
+    if @tutor 
+      @tutor.destroy
+      render json: { message: 'Tutor has been destroyed successfully!' }, status: :Ok
+    else 
+      render json: { message: 'Something went wrong.'}, status: :not_found
   end
 
   private

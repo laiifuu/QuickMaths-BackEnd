@@ -3,10 +3,10 @@ class UsersController < ApplicationController
     @username = user_params[:username]
     @user = User.find_by(username: @username)
     if @user
-      render json: { great: 'Awesome user found!', logged_in: true, reservations: @user.reservations, user: @user },
+      render json: { message: 'Welcome back, good to see you here!', logged_in: true, reservations: @user.reservations, user: @user },
              status: :ok
     else
-      render json: { yikes: 'yikes, user not found!', logged_in: false }, status: :not_found
+      render json: { message: 'User not found.', logged_in: false }, status: :not_found
     end
   end
 
@@ -15,9 +15,9 @@ class UsersController < ApplicationController
     @user = User.new(username: @username)
     if @user.valid?
       @user.save
-      render json: { great: 'Awesome user created!', logged_in: true, user: @user }, status: :created
+      render json: { message: 'User has been created successfully!!', logged_in: true, user: @user }, status: :created
     else
-      render json: { yikes: 'yikes, user could not be created!', logged_in: false }, status: :not_acceptable
+      render json: { message: 'Something went wrong.', logged_in: false }, status: :not_acceptable
     end
   end
 

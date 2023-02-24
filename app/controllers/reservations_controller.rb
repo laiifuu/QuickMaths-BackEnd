@@ -3,10 +3,10 @@ class ReservationsController < ApplicationController
         @reservation = Reservation.find_by(id: params[:id])
         if @reservation
           @reservation.destroy
-          render json: { great: 'Successfully deleted' },
+          render json: { message: 'Reservation has been successfully deleted!' },
                  status: :ok
         else
-          render json: { yikes: 'Error' }, status: :not_found
+          render json: { message: 'Something went wrong' }, status: :not_found
         end
     end
 
