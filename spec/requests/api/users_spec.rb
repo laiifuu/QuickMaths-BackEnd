@@ -4,7 +4,7 @@ RSpec.describe 'api/users', type: :request do
   describe 'Signup' do
     path '/api/v1/signup' do
       post 'Creates an user' do
-        tags 'signup'
+        tags 'Users Signup'
         consumes 'application/json'
         parameter name: :user, in: :body, schema: {
           type: :object,
@@ -30,7 +30,7 @@ RSpec.describe 'api/users', type: :request do
   describe 'Login' do
     path '/api/v1/login' do
       post 'Logs in an user' do
-        tags 'Login'
+        tags 'Users Login'
         consumes 'application/json'
         parameter name: :user, in: :body, schema: {
           type: :object,
@@ -41,7 +41,7 @@ RSpec.describe 'api/users', type: :request do
         }
 
         response '200', 'Logged in' do
-          User.create(username: "Hansen23")
+          User.create(username: 'Hansen23')
           let(:user) { { username: 'Hansen23' } }
           run_test!
         end

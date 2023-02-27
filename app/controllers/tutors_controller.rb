@@ -20,7 +20,7 @@ class TutorsController < ApplicationController
 
     if @tutor
       @tutor.destroy
-      render json: { message: 'Tutor has been destroyed successfully!' }, status: :Ok
+      render json: { message: 'Tutor has been destroyed successfully!' }, status: :ok
     else
       render json: { message: 'Something went wrong.' }, status: :not_found
     end

@@ -4,11 +4,60 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/reservation":
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: Reservation created
+        '406':
+          description: Reservation not created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                tutor_id:
+                  type: integer
+                city:
+                  type: string
+                date:
+                  type: string
+                hour:
+                  type: string
+              required:
+              - user_id
+              - tutor_id
+              - city
+              - date
+              - hour
+  "/api/v1/reservation/{id}":
+    delete:
+      summary: Deletes a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Reservation deleted
+        '404':
+          description: Reservation not found
   "/api/v1/signup":
     post:
       summary: Creates an user
       tags:
-      - signup
+      - Users Signup
       parameters: []
       responses:
         '201':
@@ -29,7 +78,7 @@ paths:
     post:
       summary: Logs in an user
       tags:
-      - Login
+      - Users Login
       parameters: []
       responses:
         '200':
