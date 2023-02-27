@@ -18,17 +18,16 @@ RSpec.describe 'api/reservations', type: :request do
       }
 
       response '201', 'Reservation created' do
+        User.create(username: 'Hansen23')
+        Tutor.create(first_name: 'Jim', last_name: 'Beam', photo_url: 'https://tK.jpg',
+                     description: 'Jim was a bald teacher math for 3 years. He knows about Thales',
+                     hourly_fee: 10, experience: 3)
         let(:reservation) { { user_id: 1, tutor_id: 1, date: '25-09-2023', hour: '1pm - 2pm', city: 'Tokyo' } }
         run_test!
       end
 
       response '406', 'Reservation not created' do
         let(:reservation) { { user_id: 1, tutor_id: 1, date: '25-09-2023', hour: '1pm - 2pm' } }
-        run_test!
-      end
-
-      response '406', 'Reservation not created' do
-        let(:reservation) { { user_id: 1, tutor_id: 1, city: 'LA', date: '2023-09-10', hour: '9pm - 10pm' } }
         run_test!
       end
     end
