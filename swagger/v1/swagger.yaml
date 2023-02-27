@@ -1,0 +1,53 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/signup":
+    post:
+      summary: Creates an user
+      tags:
+      - signup
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '406':
+          description: Not acceptable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+  "/api/v1/login":
+    post:
+      summary: Logs in an user
+      tags:
+      - Login
+      parameters: []
+      responses:
+        '200':
+          description: Logged in
+        '404':
+          description: Not acceptable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
