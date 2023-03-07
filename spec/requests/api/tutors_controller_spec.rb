@@ -39,10 +39,9 @@ RSpec.describe 'tutors', type: :request do
       get 'Retrieves Tutors' do
         tags 'Tutors'
         produces 'application/json'
-        parameter name: :id, in: :path, type: :string
         request_body_example value: { some_field: 'Foo' }, name: 'basic', summary: 'Request example description'
 
-        response '200', 'blog found' do
+        response '200', 'Tutors found' do
           schema type: :array,
                  properties: {
                    first_name: { type: :string },

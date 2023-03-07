@@ -100,15 +100,9 @@ paths:
       summary: Retrieves Tutors
       tags:
       - Tutors
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '200':
-          description: blog found
+          description: Tutors found
           content:
             application/json:
               schema:
@@ -222,7 +216,7 @@ paths:
               required:
               - username
 servers:
-- url: https://{defaultHost}
+- url: http://{defaultHost}
   variables:
     defaultHost:
       default: 127.0.0.1:3000
