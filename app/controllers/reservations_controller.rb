@@ -14,7 +14,8 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.valid?
       @reservation.save
-      render json: { message: 'Reservation has been created successfully!', reservation_obj: @reservation}, status: :created
+      render json: { message: 'Reservation has been created successfully!', reservation_obj: @reservation },
+             status: :created
     else
       render json: { message: 'Reservation couldn\'t be created.' }, status: :not_acceptable
     end
