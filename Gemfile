@@ -16,8 +16,8 @@ gem 'puma', '~> 5.0'
 # gem "jbuilder"
 
 gem 'rack-cors'
+gem 'rspec-rails'
 gem 'rswag'
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
