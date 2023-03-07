@@ -8,7 +8,7 @@ class TutorsController < ApplicationController
     @tutor = Tutor.new(tutor_params)
     if @tutor.valid?
       @tutor.save
-      render json: { message: 'Tutor has been created successfully!' }, status: :created
+      render json: { message: 'Tutor has been created successfully!', tutor_obj: @tutor }, status: :created
     else
       render json: { message: 'Tutor couldn\'t be created.' }, status: :not_acceptable
     end
@@ -20,7 +20,7 @@ class TutorsController < ApplicationController
 
     if @tutor
       @tutor.destroy
-      render json: { message: 'Tutor has been destroyed successfully!' }, status: :Ok
+      render json: { message: 'Tutor has been destroyed successfully!' }, status: :ok
     else
       render json: { message: 'Something went wrong.' }, status: :not_found
     end
