@@ -41,7 +41,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-This app currently has no live demo. 
+[Link](https://quickmaths145.netlify.app/)
 
 ## 🚀 Link to the FrontEnd App <a name="front-end-project"></a>
 
@@ -134,7 +134,7 @@ http://127.0.0.1:3000/
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Deploy the app**
+- [ ] **Implement proper authentication**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
