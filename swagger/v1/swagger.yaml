@@ -1,0 +1,222 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/reservation":
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: Reservation created
+        '406':
+          description: Reservation not created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                tutor_id:
+                  type: integer
+                city:
+                  type: string
+                date:
+                  type: string
+                hour:
+                  type: string
+              required:
+              - user_id
+              - tutor_id
+              - city
+              - date
+              - hour
+  "/api/v1/reservation/{id}":
+    delete:
+      summary: Deletes a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Reservation deleted
+        '404':
+          description: Reservation not found
+  "/api/v1/tutors":
+    post:
+      summary: Creates a tutor
+      tags:
+      - Tutors
+      parameters: []
+      responses:
+        '201':
+          description: Tutor has been created successfully!
+        '406':
+          description: Something went wrong.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                photo_url:
+                  type: string
+                description:
+                  type: text
+                fb_link:
+                  type: string
+                ig_link:
+                  type: string
+                twitter_link:
+                  type: string
+                hourly_fee:
+                  type: integer
+                experience:
+                  type: integer
+                rating:
+                  type: integer
+              required:
+              - first_name
+              - last_name
+              - photo_url
+              - hourly_fee
+              - experience
+    get:
+      summary: Retrieves Tutors
+      tags:
+      - Tutors
+      responses:
+        '200':
+          description: Tutors found
+          content:
+            application/json:
+              schema:
+                type: array
+                properties:
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  photo_url:
+                    type: string
+                  description:
+                    type: text
+                  fb_link:
+                    type: string
+                  ig_link:
+                    type: string
+                  twitter_link:
+                    type: string
+                  hourly_fee:
+                    type: integer
+                  experience:
+                    type: integer
+                  rating:
+                    type: integer
+                required:
+                - first_name
+                - last_name
+                - photo_url
+                - hourly_fee
+                - experience
+  "/api/v1/tutors/{id}":
+    delete:
+      summary: Destroy a tutor
+      tags:
+      - Tutors
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tutor has been destroyed successfully!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  photo_url:
+                    type: string
+                  description:
+                    type: text
+                  fb_link:
+                    type: string
+                  ig_link:
+                    type: string
+                  twitter_link:
+                    type: string
+                  hourly_fee:
+                    type: integer
+                  experience:
+                    type: integer
+                  rating:
+                    type: integer
+  "/api/v1/signup":
+    post:
+      summary: Creates an user
+      tags:
+      - Users Signup
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '406':
+          description: Not acceptable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+  "/api/v1/login":
+    post:
+      summary: Logs in an user
+      tags:
+      - Users Login
+      parameters: []
+      responses:
+        '200':
+          description: Logged in
+        '404':
+          description: Not acceptable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000
