@@ -8,6 +8,7 @@
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
   - [🚀 Link to the FrontEnd App](#front-end-project)
+  - [🚀 Kanban board](#kanban-board)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -44,7 +45,19 @@ This app currently has no live demo.
 
 ## 🚀 Link to the FrontEnd App <a name="front-end-project"></a>
 
-To be added soon.
+[Link](https://github.com/laiifuu/quickmaths-frontend)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Kanban board <a name="kanban-board"></a>
+
+[Kanban Link](https://github.com/users/laiifuu/projects/4/views/1)<br>
+[Kanban screenshots](https://github.com/laiifuu/QuickMaths-BackEnd/issues/14)
+
+### 3 members
+  - Hayet Fellah
+  - Florin Voicu
+  - Daron Wiafe
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
